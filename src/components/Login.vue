@@ -1,0 +1,52 @@
+<template>
+  <div>
+    <!-- 登录 -->
+    <h1>登录</h1>
+    <ul>
+      <li>
+        <label for>用户名：</label>
+        <input type="text" v-model="username" id="uname">
+      </li>
+      <li>
+        <label for>密码：</label>
+        <input type="text" v-model="password" id="pw">
+      </li>
+      <li>
+        <input type="button" value="提交" @click="login">
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+import { login } from '../api/api.js'
+export default {
+  data () {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login () {
+      // 调用登录接口,提交与用户登录信息
+      let params = {
+        username: this.username,
+        password: this.password
+      }
+      login(params).then(res => {
+        console.log(res)
+        if (res.meta.status === 400) {
+          // 跳转到主页
+          this.$router.push({name: 'home'})
+        } else {
+          console.log('用户名或密码错误')
+        }
+      })
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>

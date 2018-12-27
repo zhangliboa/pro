@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     login () {
-      // 调用登录接口,提交与用户登录信息
+      // 调用登录接口, 提交与用户登录信息
       let params = {
         username: this.username,
         password: this.password

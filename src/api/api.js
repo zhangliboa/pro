@@ -14,6 +14,7 @@ axios.defaults.baseURL = 'http://47.96.21.88:8888/api/private/v1/'
 // }, function (error) {
 //   return Promise.reject(error)
 // })
+
 // 实现登录功能
 export const login = (params) => {
   return axios.post('login', params).then(

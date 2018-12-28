@@ -37,7 +37,7 @@ export default {
         console.log(res)
         if (res.meta.status === 200) {
           // 存储token
-          // localStorage.setItem('mytoken',  res.data.token)
+          localStorage.setItem('mytoken', res.meta.status)
           // 跳转到主页
           this.$router.push({name: 'home'})
         } else {
